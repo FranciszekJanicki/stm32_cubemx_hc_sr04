@@ -1,19 +1,21 @@
 add_executable(app)
 
 target_sources(app PRIVATE 
-    "main.cpp"
+    "main.c"
 )
 
 target_include_directories(app PRIVATE 
     ${CMAKE_DIR}/stm32cubemx
+    ${APP_DIR}/hc_sr04
 )
 
 target_link_libraries(app PRIVATE
     stm32cubemx
+    hc_sr04
 )
 
 target_compile_options(app PUBLIC
-    -std=c++23
+    -std=c23
     -Wall
     -Wextra
     -Wconversion
@@ -31,5 +33,4 @@ target_compile_options(app PUBLIC
     -Wdouble-promotion
     -Wimplicit-fallthrough
     -Wcast-align
-    -fconcepts
 )

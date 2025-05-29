@@ -1,22 +1,17 @@
 add_library(hc_sr04 STATIC)
 
 target_sources(hc_sr04 PRIVATE 
-    "hc_sr04.cpp"
-    "interrupts.cpp"
+    "hc_sr04.c"
 )
 
 target_include_directories(hc_sr04 PUBLIC 
-    "."
-    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries(hc_sr04 PRIVATE
-    utility
-    stm32cubemx
 )
 
 target_compile_options(hc_sr04 PUBLIC
-    -std=c++23
+    -std=c23
     -Wall
     -Wextra
     -Wconversion
@@ -34,5 +29,4 @@ target_compile_options(hc_sr04 PUBLIC
     -Wdouble-promotion
     -Wimplicit-fallthrough
     -Wcast-align
-    -fconcepts
 )
